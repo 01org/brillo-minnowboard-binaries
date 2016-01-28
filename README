@@ -1,0 +1,5 @@
+The files in this branch are useful to recreate the binaries from the the branches
+named brillo-<DATE>. 
+
+Please see the README file present in boot_binaries/ in one of
+those branches for instructions on how to build and sync these sources.
