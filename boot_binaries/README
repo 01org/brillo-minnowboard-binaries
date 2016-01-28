@@ -1,0 +1,147 @@
+Provisioning Brillo on MinnowBoard MAX/Turbot
+
+Contents
+========
+
+1. First-time MinnowBoard provisioning
+2. Flashing Brillo on MinnowBoard
+3. Rebuild bootloader and fastboot-usb.img
+4. Recreate the binaries from an AOSP revision manifest
+
+
+1. Initial MinnowBoard provisioning
+===================================
+
+These steps are required the first time you are flashing a Brillo build.
+
+On the Linux PC, insert a USB thumb drive. Determine the correct device name
+for the USB thumb drive. In a terminal window, enter the following command:
+  $ dmesg | tail -20
+
+In the resulting output, look for a name such as [sdX], where X is a letter.
+Unmount any partitions that were automatically mounted, using the following
+command, where X is the letter identified above:
+  $ sudo umount /dev/sdX*
+
+Write fastboot-usb.img to the USB thumb drive using the following commands,
+where X is the letter identified above:
+  # Note: This command will overwrite the content of the USB thumb drive.
+  $ sudo dd bs=1M if=fastboot-usb.img of=/dev/sdX conv=fsync
+
+Eject the USB thumb drive and connect it to the MinnowBoard.
+  $ sudo eject /dev/sdX
+
+Insert a MicroSD card (4GB or larger) in the on-board MicroSD port.
+Connect the MinnowBoard to the same DHCP-enabled network your Linux host is
+connected. Power on the MinnowBoard.
+Press F2 or ESC while booting to enter the Device Manager.
+Use the arrow keys to select Boot Manager and press Enter.
+Use the arrow keys to select EFI USB Device and press Enter.
+Wait for the MinnowBoard to boot in fastboot.
+
+See the next section for actually flashing your build.
+
+2. Flashing Brillo on MinnowBoard
+=================================
+
+Follow these steps if you flashed at least once a Brillo build before or you
+booted from a USB drive as described in Section 1.
+If you already have a Brillo OS build running on the device issue:
+  $ adb reboot bootloader
+which will get you in fastboot mode.
+
+After fastboot has started, the monitor displays an ethernet address for the
+MinnowBoard, such as eth0 <fastboot_ip>, as shown in the output below.
+
+userfastboot: Userfastboot for Brillo/minnowboard/minnowboard
+ 
+       bootloader: kernelflinger-02.1B-eng+userfastboot-08.11
+           kernel: 3.14.55-x86_64-00001-gb9685e9 #1 SMP PREEMPT Fri Jan 29 14:19:10 EET 2016 i686
+         firmware: Intel Corp. MNW2MAX1.X64.0084.R01.1512041611
+            board: Circuitco MinnowBoard MAX REV A
+         serialno: 001320FE5568
+     device state: unlocked
+ UEFI secure boot: setup
+       boot state: RED
+provisioning mode: no
+ 
+eth0 10.10.1.5 00:23:22:fc:55:61
+
+Record the ethernet address <fastboot_ip> in a convenient place. You'll need
+this value in the next step. On the Linux PC, in a terminal window where you
+sourced the build enviroment from a Brillo AOSP tree, enter the following
+command to start the provisioning process:
+
+  $ provision <fastboot_ip>
+  $ fastboot -s <fastboot_ip> reboot
+
+The board is restarted and Brillo is installed on the MicroSD card.
+You may remove the USB thumb drive if it was inserted. This completes the
+installation and bring-up procedures. Your MinnowBoard is ready for use.
+
+3. Rebuild bootloader and fastboot-usb.img
+==========================================
+
+In order to rebuild the image used for initial provisioning and/or the
+bootloader you need a full Brillo AOSP development tree. Presuming that you
+already downloaded the AOSP tree under /brillo folder, the next steps are to
+download the bootloader source code and its dependencies, change a flag in
+BoardConfig.mk and make a full or partial build.
+To download the required sources we add a local_manifest.xml and use repo tool
+for integrating them in the development tree. From a terminal console run the
+following commands:
+
+  $ cd /brillo
+  $ mkdir -p .repo/local_manifests
+  $ cp vendor/bsp/intel/minnowboard/boot_binaries/local_manifest.xml .repo/local_manifests/
+  $ repo sync -j4 -c
+
+After the sync in $TOP/vendor/bsp/intel folder you should see 9 new projects.
+
+By default MinnowBoard configuration files are set to use a prebuilt bootloader.
+If you want to rebuild the bootloader from sources then you have to set the
+BOOTLOADER_USE_PREBUILT environment variable to false before executing make.
+After making your changes in the kernelflinger/userfastboot projects you
+rebuild them with these commands:
+
+  $ cd /brillo
+  $ source build/envsetup.sh
+  $ lunch minnowboard-eng
+  $ rm -rf out/
+  $ BOOTLOADER_USE_PREBUILT=false make -j8 bootloader userfastboot-usb
+
+The new binaries are created in the out/target/product/minnowboard/ folder:
+out/target/product/minnowboard/bootloader
+out/target/product/minnowboard/fastboot-usb.img
+
+IMPORTANT: remove the out/ folder before building with BOOTLOADER_USE_PREBUILT=false
+IMPORTANT: you must move them to the vendor/bsp/intel/minnowboard/boot_binaries/
+folder in order to be used by the build system:
+
+  $ cd brillo
+  $ cp out/target/product/minnowboard/bootloader vendor/bsp/intel/minnowboard/boot_binaries/
+  $ cp out/target/product/minnowboard/fastboot-usb.img vendor/bsp/intel/minnowboard/boot_binaries/
+  $ rm -rf out/ # if you build without BOOTLOADER_USE_PREBUILT=false
+
+If you want a USER build instead of ENGINEERING one then use
+'lunch minnowboard-user' in the above commands. If you want a full image build
+for MinnowBoard then use 'make -j8 dist'.
+
+
+
+4. Recreate the binaries from an AOSP revision manifest
+=======================================================
+
+In the previous section you rebuilt the bootloader sources in your local AOSP
+tree which may be different from the snapshot used when the original binaries
+were published. Usually you do not need to do this and the previous section should
+be enough for most cases unless you need the exact binaries or you are having problems
+building.
+
+To recreate the exact binaries you need to download the 'full_manifest_2016-02-03.xml' file from:
+https://github.com/01org/brillo-minnowboard-binaries/tree/brillo-manifests. Then run:
+  $ repo init -u https://android.googlesource.com/brillo/manifest -b master -m full_manifest_2016-02-03.xml
+  $ repo sync
+
+You can now follow the instructions from the previous section to build the
+images.

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <remote name="github" fetch="https://github.com/android-ia/" revision="refs/tags/brillo-2016-02-03"/>
+
+  <!-- Userfastboot and kernelflinger -->
+  <project  name="hardware_intel_efi_kernelflinger" path="vendor/bsp/intel/kernelflinger" sync-c="true" remote="github"/>
+  <project  name="platform_bootable_userfastboot" path="vendor/bsp/intel/userfastboot" sync-c="true" remote="github"/>
+
+  <!-- support for userfastboot and kernelflinger -->
+  <project  name="platform_external_efibootmgr" path="vendor/bsp/intel/efibootmgr" sync-c="true" remote="github"/>
+  <project  name="vendor_intel_external_efivar" path="vendor/bsp/intel/efivar" sync-c="true" remote="github"/>
+  <project  name="platform_external_uefi_shim" path="vendor/bsp/intel/uefi_shim" sync-c="true" remote="github"/>
+  <project  name="external_iniparser" path="vendor/bsp/intel/iniparser" sync-c="true" remote="github"/>
+  <project  name="platform_external_pciutils" path="vendor/bsp/intel/pciutils" sync-c="true" remote="github"/>
+  <project  name="vendor_intel_external_efi_gnu-efi_prebuilt" path="vendor/bsp/intel/gnu-efi_prebuilt" sync-c="true" remote="github"/>
+
+  <!-- Image signing tools -->
+  <project name="platform_external_sbsigntool" path="vendor/bsp/intel/sbsigntool" sync-c="true" remote="github"/>
+
+  <!-- AOSP projects required for image signing, remove them from here if they are already in the AOSP manifest -->
+  <project path="external/bouncycastle" name="platform/external/bouncycastle" groups="bdk"/>
+  <project path="external/conscrypt" name="platform/external/conscrypt" groups="bdk" />
+</manifest>
