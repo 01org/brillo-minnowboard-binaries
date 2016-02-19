@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
-  <remote name="github" fetch="https://github.com/android-ia/" revision="refs/tags/brillo-2016-02-03"/>
+  <remote name="github" fetch="https://github.com/android-ia/" revision="refs/tags/brillo-2016-02-23"/>
 
   <!-- Userfastboot and kernelflinger -->
   <project  name="hardware_intel_efi_kernelflinger" path="vendor/bsp/intel/kernelflinger" sync-c="true" remote="github"/>
@@ -16,8 +16,4 @@
 
   <!-- Image signing tools -->
   <project name="platform_external_sbsigntool" path="vendor/bsp/intel/sbsigntool" sync-c="true" remote="github"/>
-
-  <!-- AOSP projects required for image signing, remove them from here if they are already in the AOSP manifest -->
-  <project path="external/bouncycastle" name="platform/external/bouncycastle" groups="bdk"/>
-  <project path="external/conscrypt" name="platform/external/conscrypt" groups="bdk" />
 </manifest>
