@@ -53,21 +53,25 @@ which will get you in fastboot mode.
 After fastboot has started, the monitor displays an ethernet address for the
 MinnowBoard, such as eth0 <fastboot_ip>, as shown in the output below.
 
-userfastboot: Userfastboot for Brillo/minnowboard/minnowboard
- 
-       bootloader: kernelflinger-02.1B-eng+userfastboot-08.11
-           kernel: 3.14.55-x86_64-00001-gb9685e9 #1 SMP PREEMPT Fri Jan 29 14:19:10 EET 2016 i686
-         firmware: Intel Corp. MNW2MAX1.X64.0084.R01.1512041611
-            board: Circuitco MinnowBoard MAX REV A
-         serialno: 001320FE5568
-     device state: unlocked
- UEFI secure boot: setup
-       boot state: RED
-provisioning mode: no
- 
-eth0 10.10.1.5 00:23:22:fc:55:61
+-- cut --
+Bootlogic: Check reboot target...
+checking LoaderEntryOneShot
+target = bootloader
+Bootlogic: selected 'Fastboot mode'
 
-Record the ethernet address <fastboot_ip> in a convenient place. You'll need
+INSECURE BOOTLOADER - SYSTEM SECURITY IN RED STATE
+entering Fastboot mode
+OEMLock not set, device is in provisioning mode
+Unable to locate graphics output protocol, graphic disabled: Not Found
+Init screen failed: Not Found
+Fastboot UI initialization failed, continue anyway.: Not Found
+Failed to locate usb device protocol
+USB for fastboot transport layer is not supported, skipping
+Fastboot is listening on TCP 10.10.1.5:5554
+TCP for fastboot transport layer selected
+-- cut --
+
+Record the TCP/IP address <fastboot_ip> in a convenient place. You'll need
 this value in the next step. On the Linux PC, in a terminal window where you
 sourced the build enviroment from a Brillo AOSP tree, enter the following
 command to start the provisioning process:
@@ -96,19 +100,18 @@ following commands:
   $ cp vendor/bsp/intel/minnowboard/boot_binaries/local_manifest.xml .repo/local_manifests/
   $ repo sync -j4 -c
 
-After the sync in $TOP/vendor/bsp/intel folder you should see 9 new projects.
+After the sync in $TOP/vendor/bsp/intel folder you should see 4 new projects.
 
 By default MinnowBoard configuration files are set to use a prebuilt bootloader.
 If you want to rebuild the bootloader from sources then you have to set the
 BOOTLOADER_USE_PREBUILT environment variable to false before executing make.
-After making your changes in the kernelflinger/userfastboot projects you
-rebuild them with these commands:
+After making your changes in the kernelflinger project you rebuild it with these commands:
 
   $ cd /brillo
   $ source build/envsetup.sh
   $ lunch minnowboard-eng
   $ rm -rf out/
-  $ BOOTLOADER_USE_PREBUILT=false make -j8 bootloader userfastboot-usb
+  $ BOOTLOADER_USE_PREBUILT=false make -j8 bootloader fastboot-usb
 
 The new binaries are created in the out/target/product/minnowboard/ folder:
 out/target/product/minnowboard/bootloader
@@ -138,9 +141,9 @@ were published. Usually you do not need to do this and the previous section shou
 be enough for most cases unless you need the exact binaries or you are having problems
 building.
 
-To recreate the exact binaries you need to download the 'full_manifest_2016-02-23.xml' file from:
+To recreate the exact binaries you need to download the 'full_manifest_2016-03-04.xml' file from:
 https://github.com/01org/brillo-minnowboard-binaries/tree/brillo-manifests. Then run:
-  $ repo init -u https://android.googlesource.com/brillo/manifest -b master -m full_manifest_2016-02-23.xml
+  $ repo init -u https://android.googlesource.com/brillo/manifest -b master -m full_manifest_2016-03-04.xml
   $ repo sync
 
 You can now follow the instructions from the previous section to build the images.
