@@ -51,7 +51,8 @@ If you already have a Brillo OS build running on the device issue:
 which will get you in fastboot mode.
 
 After fastboot has started, the monitor displays an ethernet address for the
-MinnowBoard, such as eth0 <fastboot_ip>, as shown in the output below.
+MinnowBoard, such as "Fastboot is listening on TCP <fastboot_ip>:5554"
+as shown in the output below:
 
 -- cut --
 Bootlogic: Check reboot target...
@@ -76,7 +77,7 @@ this value in the next step. On the Linux PC, in a terminal window where you
 sourced the build enviroment from a Brillo AOSP tree, enter the following
 command to start the provisioning process:
 
-  $ provision <fastboot_ip>
+  $ provision -s tcp:<fastboot_ip>
   $ fastboot -s tcp:<fastboot_ip> reboot
 
 The board is restarted and Brillo is installed on the MicroSD card.
@@ -129,8 +130,6 @@ folder in order to be used by the build system:
 If you want a USER build instead of ENGINEERING one then use
 'lunch minnowboard-user' in the above commands. If you want a full image build
 for MinnowBoard then use 'make -j8 dist'.
-
-
 
 4. Recreate the binaries from an AOSP revision manifest
 =======================================================
