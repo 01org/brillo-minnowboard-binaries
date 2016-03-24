@@ -140,9 +140,9 @@ were published. Usually you do not need to do this and the previous section shou
 be enough for most cases unless you need the exact binaries or you are having problems
 building.
 
-To recreate the exact binaries you need to download the 'full_manifest_2016-03-04.xml' file from:
+To recreate the exact binaries you need to download the 'full_manifest_2016-04-01.xml' file from:
 https://github.com/01org/brillo-minnowboard-binaries/tree/brillo-manifests. Then run:
-  $ repo init -u https://android.googlesource.com/brillo/manifest -b master -m full_manifest_2016-03-04.xml
+  $ repo init -u https://android.googlesource.com/brillo/manifest -b master -m full_manifest_2016-04-01.xml
   $ repo sync
 
 You can now follow the instructions from the previous section to build the images.

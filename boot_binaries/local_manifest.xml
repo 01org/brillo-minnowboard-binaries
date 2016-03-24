@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
-  <remote name="github" fetch="https://github.com/android-ia/" revision="refs/tags/brillo-2016-03-04"/>
+  <remote name="github" fetch="https://github.com/android-ia/" revision="refs/tags/brillo-2016-04-01"/>
 
   <!-- kernelflinger -->
   <project  name="hardware_intel_efi_kernelflinger" path="vendor/bsp/intel/kernelflinger" sync-c="true" remote="github"/>
