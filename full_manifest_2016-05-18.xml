@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest>
+  <remote fetch=".." name="aosp" review="https://android-review.googlesource.com/"/>
+  <remote fetch="https://github.com/android-ia/" name="github" revision="refs/tags/brillo-2016-05-18"/>
+  
+  <default remote="aosp" revision="master" sync-j="4"/>
+  
+  <project groups="picoimx" name="device/freescale/picoimx" revision="760f38923c7de0241a653a21163ad314b8a80f7f"/>
+  <project groups="bdk" name="device/generic/arm64" revision="39249053f37b7f9633eb406af3dbedfea7bf8b3e"/>
+  <project groups="bdk" name="device/generic/armv7-a-neon" revision="0e7af778b59c0ff590e21fcce8cfc9176dc0d13d"/>
+  <project groups="bdk" name="device/generic/brillo" revision="7d421428a3aee9e2bfa52040ec337f95aa112dcc"/>
+  <project groups="bdk" name="device/generic/common" revision="11c092a6cbfcf6207f07a9a8e3398e747e7f5461"/>
+  <project groups="bdk" name="device/generic/goldfish" revision="935f252c6e27b477638d2b943fc5bfc89ea13b64"/>
+  <project groups="bdk" name="device/generic/mini-emulator-arm64" revision="4f30226980039087b0d14de2c4dd0a1f37b9fd95"/>
+  <project groups="bdk" name="device/generic/mini-emulator-armv7-a-neon" revision="f41c1e4e10574399c6798d286c22d03471217691"/>
+  <project groups="bdk" name="device/generic/mini-emulator-x86" revision="65d59e2be2cfd713513a05d80a0f75794ab60579"/>
+  <project groups="bdk" name="device/generic/mini-emulator-x86_64" revision="673aae8bd65d9708821c4062f6a0364a859e7ae4"/>
+  <project groups="bdk" name="device/generic/x86" revision="81ce753ec0014fe404c4eec3ac6d04504356a638"/>
+  <project groups="bdk" name="device/generic/x86_64" revision="fb3fa9fc21f200a77cd4b4d1df01302ade359d1c"/>
+  <project groups="creatorci41" name="device/imagination/creatorci41" revision="3fa40b859116eea2b922e29fa989ec94ef1d7bc1"/>
+  <project groups="edison" name="device/intel/edison" revision="42cf3872dd5cbf3fb68e89ce15019a3cf98431b1"/>
+  <project groups="minnowboard" name="device/intel/minnowboard" revision="bc60bde22edc8f6fd6cfc1a3008155abbf8cdd98"/>
+  <project groups="abox" name="device/marvell/abox_edge" revision="17aeba9f571cd4b53010614c256731e3a4cbe963"/>
+  <project groups="dragonboard" name="device/qcom/dragonboard" revision="3665b7eda217ded44a54af7161306efda60e2a59"/>
+  <project groups="kylin" name="device/rockchip/kylin" revision="dfdd7b7474e3b615a7d21232e9d8f8cdbe736030"/>
+  <project name="hardware_intel_efi_kernelflinger" path="vendor/bsp/intel/kernelflinger" remote="github" revision="cb484f3b60b72dfec5cab39a5e7901effee15d7e" sync-c="true"/>
+  <project groups="bdk" name="kernel/common" path="hardware/bsp/kernel/common/android-3.18" revision="0bec9701b94804e772aa1f98347651368ede1867"/>
+  <project groups="bdk" name="platform/bionic" path="bionic" revision="42abf3d241b8fd59c3911bd04f13cd4e40e46448"/>
+  <project groups="bdk" name="platform/bootable/recovery" path="bootable/recovery" revision="14352497f02c38d4f9df46820284c100a1fb58d3"/>
+  <project groups="bdk" name="platform/build" path="build" revision="30b57cd7d5459c69fbd4332b988b5e636b529f4d">
+    <copyfile dest="Makefile" src="core/root.mk"/>
+  </project>
+  <project groups="bdk" name="platform/build/blueprint" path="build/blueprint" revision="3d5a0af83ae309691dd861e6cfc041dd64af2ccd"/>
+  <project groups="bdk" name="platform/build/kati" path="build/kati" revision="ce34badf691d36e8048b63f89d1a86ee5fa4325c"/>
+  <project groups="bdk" name="platform/build/soong" path="build/soong" revision="36cff8bb6fdff4a843dfe65cc83227b7f677dd55">
+    <linkfile dest="Android.bp" src="root.bp"/>
+    <linkfile dest="bootstrap.bash" src="bootstrap.bash"/>
+  </project>
+  <project groups="bdk" name="platform/external/aac" path="external/aac" revision="8192b1a98f60cc39253c658ba1ca70a70c2e0dfa"/>
+  <project groups="bdk" name="platform/external/autotest" path="external/autotest" revision="83747a170b29e684bbe5bf9559e642cdb23ab744"/>
+  <project groups="bdk" name="platform/external/avahi" path="external/avahi" revision="a07d9ad87a5066697197e49a6d7fa972c719252a"/>
+  <project groups="bdk" name="platform/external/bison" path="external/bison" revision="c2418b886165add7f5a31fc5609f0ce2d004a90e"/>
+  <project groups="bdk" name="platform/external/boringssl" path="external/boringssl" revision="9aaebef260163f2eda55612a488ffa4b89cd26af"/>
+  <project groups="bdk" name="platform/external/bsdiff" path="external/bsdiff" revision="56b320c00e8f86732ca2927f9b4f1363e306caa8"/>
+  <project groups="bdk" name="platform/external/bzip2" path="external/bzip2" revision="2cde259195a31c270adf9ea5208353c3803a4364"/>
+  <project groups="bdk" name="platform/external/c-ares" path="external/c-ares" revision="de2cd886042f484dc8694e614c3ac16298f93514"/>
+  <project groups="bdk" name="platform/external/chromite" path="external/chromite" revision="a14a4add9d8e72c10f68f50adde4d73c299f186f"/>
+  <project groups="bdk" name="platform/external/clang" path="external/clang" revision="514681ee8a44700a56733816831ccc3d40a57cc7"/>
+  <project groups="bdk" name="platform/external/compiler-rt" path="external/compiler-rt" revision="0b3e1a788cb585c7831c1d449fede5ba9cf334d6"/>
+  <project groups="bdk" name="platform/external/cros/system_api" path="external/cros/system_api" revision="ec89d4d0d5140337c469fd2b51135961c24b8b2f"/>
+  <project groups="bdk" name="platform/external/curl" path="external/curl" revision="5ba6000306b3069356a86d7ff39df55f90f8baeb"/>
+  <project groups="bdk" name="platform/external/dbus" path="external/dbus" revision="282db28ba048ccaf956b208ab6059ff288c3d74b"/>
+  <project groups="bdk" name="platform/external/dbus-binding-generator" path="external/dbus-binding-generator" revision="bce0483dd09f592d6f9f989f0e34fc930d206810"/>
+  <project groups="bdk" name="platform/external/dhcpcd" path="external/dhcpcd" revision="2ad0f1bb56b50045d8112a9dba3e2e6c6e466b55"/>
+  <project groups="bdk" name="platform/external/dhcpcd-6.8.2" path="external/dhcpcd-6.8.2" revision="d0884825457b7117aa93514786b95731e2cb08d8"/>
+  <project groups="bdk" name="platform/external/dnsmasq" path="external/dnsmasq" revision="abfdd06910e2814b6db6198b40c070fa23f71f0e"/>
+  <project groups="bdk" name="platform/external/e2fsprogs" path="external/e2fsprogs" revision="7b00a1feb5b921c77e14e4a84398cd8d3f50bc8d"/>
+  <project groups="bdk" name="platform/external/elfutils" path="external/elfutils" revision="9ed309a54518bcd5c3648cb6e868b98cf4284a70"/>
+  <project groups="bdk" name="platform/external/expat" path="external/expat" revision="b9805a57ce1ef5cd9c1668316a2c71e0aaa50291"/>
+  <project groups="bdk" name="platform/external/f2fs-tools" path="external/f2fs-tools" revision="183da748b2ef4a1ae2b0e516fe02a0c8c421a5ce"/>
+  <project groups="bdk" name="platform/external/fec" path="external/fec" revision="791afbe58ff9f55145c4adf632ab8cc9ca6e5686"/>
+  <project groups="bdk" name="platform/external/flac" path="external/flac" revision="e685ca5e441867515363f6f9c1be5f609b67e975"/>
+  <project groups="bdk" name="platform/external/gentoo/integration" path="external/gentoo/integration" revision="0a640a9fcf9a3680ac38179665d1110f737d4b7d"/>
+  <project clone-depth="1" groups="bdk" name="platform/external/gentoo/overlays/gentoo" path="external/gentoo/overlays/gentoo" revision="3467b8748761018bef84f8470ef4d0070136e6f1"/>
+  <project groups="bdk" name="platform/external/gentoo/portage" path="external/gentoo/portage" revision="ad6d13ef139b54a16ebe2e65db77fa73c67cec71"/>
+  <project groups="bdk" name="platform/external/gmock" path="external/gmock" revision="f68c7ea3c48b8c60d79f71f02f4188b42a5dfc1c"/>
+  <project groups="dragon,bdk" name="platform/external/google-breakpad" path="external/google-breakpad" revision="48be2ddaab8cd3a18625874a39adb457039dc95a"/>
+  <project groups="bdk" name="platform/external/gtest" path="external/gtest" revision="55cc0e85b97b656885aaab8d5688ff9b32bc7e88"/>
+  <project groups="bdk" name="platform/external/icu" path="external/icu" revision="f8798e2fb2a992f81923c01fdf93802b9a954e04"/>
+  <project groups="bdk" name="platform/external/iproute2" path="external/iproute2" revision="4bf849687b3289b4f23bfbe21f6cda2ee60d3c51"/>
+  <project groups="bdk" name="platform/external/iptables" path="external/iptables" revision="4825a1b564e5c2d8268bf08f08e37cd901b7d902"/>
+  <project groups="bdk" name="platform/external/iputils" path="external/iputils" revision="9259dfa16d5af036b02af3388c40579314056b25"/>
+  <project groups="bdk" name="platform/external/iw" path="external/iw" revision="2af129ead0104bc925504169300945e26bd6ccb9"/>
+  <project groups="bdk" name="platform/external/jemalloc" path="external/jemalloc" revision="c7682d72e8eeca87831dd36e09888ecd22a25f17"/>
+  <project groups="bdk" name="platform/external/jpeg" path="external/jpeg" revision="b7c209490772cb1a4c76b7f086af314e04d6bc25"/>
+  <project groups="bdk" name="platform/external/libbrillo" path="external/libbrillo" revision="ae40d5e67c6686d02918ba42686f94d45ac92f86"/>
+  <project groups="bdk" name="platform/external/libcap" path="external/libcap" revision="5fc5a50a942e6f863189b52d2a831730b36c3331"/>
+  <project groups="bdk" name="platform/external/libcap-ng" path="external/libcap-ng" revision="53fca3a97db151f33f1233bdf97117c35464e75c"/>
+  <project groups="bdk" name="platform/external/libchrome" path="external/libchrome" revision="520be045f15462281c61e53944100d7e303679be"/>
+  <project groups="bdk" name="platform/external/libconstrainedcrypto" path="external/libconstrainedcrypto" revision="fca75c837bebfbd51927156158de36fc517742f7"/>
+  <project groups="bdk" name="platform/external/libcxx" path="external/libcxx" revision="5d47434c0e368d36b3672716002c2c9684c2e7e5"/>
+  <project groups="bdk" name="platform/external/libcxxabi" path="external/libcxxabi" revision="032303c9820b3aed7f12fd2934840e785d863795"/>
+  <project groups="bdk" name="platform/external/libdaemon" path="external/libdaemon" revision="e2f604066d97431c95856c73d7b9ee46b348d37e"/>
+  <project groups="bdk" name="platform/external/libdivsufsort" path="external/libdivsufsort" revision="2ba0b76b77e9888f4713e9d001339ee2135e6165"/>
+  <project groups="bdk" name="platform/external/libevent" path="external/libevent" revision="98da59020d0d01409ff40a0aa362403258d4af90"/>
+  <project groups="bdk" name="platform/external/libgsm" path="external/libgsm" revision="24f4cec156ab1cf9d3aeeae4408e234f02d874cc"/>
+  <project groups="bdk" name="platform/external/liblzf" path="external/liblzf" revision="6946aa575b0949d045722794850896099d937cbb"/>
+  <project groups="bdk" name="platform/external/libmicrohttpd" path="external/libmicrohttpd" revision="1e68f5d827a859ba3b7ab6a70a60247e0b96afa5"/>
+  <project groups="bdk" name="platform/external/libnl" path="external/libnl" revision="d3c03bffa143b877a8610d1cb8ef51d92fb2dd61"/>
+  <project groups="bdk" name="platform/external/libogg" path="external/libogg" revision="e4375ffe5491c4742bec47ae5468a9df5ffc3528"/>
+  <project groups="bdk" name="platform/external/libopus" path="external/libopus" revision="c91ee5b5642fcc4969150f73d5f6848f88bf1638"/>
+  <project groups="bdk" name="platform/external/libselinux" path="external/libselinux" revision="a9677b666c6ae598291f8b7757bef967b6338335"/>
+  <project groups="bdk" name="platform/external/libunwind" path="external/libunwind" revision="0e1edfe560366bb9b7e84d4f2379ac96424dd08c"/>
+  <project groups="bdk" name="platform/external/libunwind_llvm" path="external/libunwind_llvm" revision="75720b6995ce3c96222ee78ba58cd573f95f8cde"/>
+  <project groups="bdk" name="platform/external/libvpx" path="external/libvpx" revision="e118f5f125ca344dedbe4d03d06fa467512c3513"/>
+  <project groups="bdk" name="platform/external/libweave" path="external/libweave" revision="e6ed8e260bf583568872a620450bef0cb76ae4e3"/>
+  <project groups="bdk" name="platform/external/llvm" path="external/llvm" revision="79e8ef6360ce115c99b65a760caa4a362df3deaf"/>
+  <project groups="bdk" name="platform/external/lz4" path="external/lz4" revision="74ba70e09305e588c3841e0f73f6b3a16703d8a5"/>
+  <project groups="bdk" name="platform/external/lzma" path="external/lzma" revision="bbd5b471a18af2a281a620cb1edd0274d1c5fac5"/>
+  <project groups="bdk" name="platform/external/lzop" path="external/lzop" revision="e980e3801fc731314acb144c88356630f5b1a4fc"/>
+  <project groups="bdk" name="platform/external/minijail" path="external/minijail" revision="477f2e32a7e4a6ce96baf960ad9f915f52f920a6"/>
+  <project groups="bdk" name="platform/external/mksh" path="external/mksh" revision="b394f11bc41d75abb6fc623dd9e15eef626eb380"/>
+  <project groups="bdk" name="platform/external/modp_b64" path="external/modp_b64" revision="8a6dfb4ec3cb62e6ff4d1b863215463ad09095f7"/>
+  <project groups="bdk" name="platform/external/pcre" path="external/pcre" revision="0e44fd55f87fd956993683e2574df9c12a6e0413"/>
+  <project groups="bdk" name="platform/external/protobuf" path="external/protobuf" revision="4b96538e7732817c2eb667d9ab9380b30525e2c3"/>
+  <project groups="bdk" name="platform/external/rootdev" path="external/rootdev" revision="9d44d9dd53bd3da3b01445a52b5d2420dc40f9b2"/>
+  <project groups="bdk" name="platform/external/safe-iop" path="external/safe-iop" revision="aa0725fb1da35e47676b6da30009322eb5ed59be"/>
+  <project groups="bdk" name="platform/external/selinux" path="external/selinux" revision="334b66dccc61ca0ad517bc13f8f5c7e77910f9d9"/>
+  <project groups="bdk" name="platform/external/shflags" path="external/shflags" revision="c4876e01829b8cf110ee33267bb1bad1f8ebb51d"/>
+  <project groups="bdk" name="platform/external/sonic" path="external/sonic" revision="0227d834966b304525869d88fd20b2ac835df878"/>
+  <project groups="bdk" name="platform/external/sonivox" path="external/sonivox" revision="9a1e6a19328483db9b9208f3b7e97c69d774dd7f"/>
+  <project groups="bdk" name="platform/external/speex" path="external/speex" revision="2027ebeb53e55fc1c57a547174c2a661a11f6b82"/>
+  <project groups="bdk" name="platform/external/squashfs-tools" path="external/squashfs-tools" revision="481261fea8f579976a95d0422a9ba817642fa53e"/>
+  <project groups="bdk" name="platform/external/strace" path="external/strace" revision="14a477a9ca6d1e8de878155194dba2546517ab93"/>
+  <project groups="bdk" name="platform/external/tinyalsa" path="external/tinyalsa" revision="efb649e0c2650868eb02b6d71716f4671ec9e150"/>
+  <project groups="bdk" name="platform/external/tinycompress" path="external/tinycompress" revision="379571405632a407b8ad0e4cea6a3ec86e5703c1"/>
+  <project groups="bdk" name="platform/external/tinyxml" path="external/tinyxml" revision="143125ff631c481d590cae0d7cc9ccfaaca269c7"/>
+  <project groups="bdk" name="platform/external/tinyxml2" path="external/tinyxml2" revision="1f991a379eb05f38cf34406c6d6dbd3e6ea1cbfe"/>
+  <project groups="bdk" name="platform/external/tlsdate" path="external/tlsdate" revision="8e4be28465ee3c7732074443359cad925a9bf264"/>
+  <project groups="bdk" name="platform/external/toybox" path="external/toybox" revision="498e61d5a4361d4a225947386ac8150292dcc466"/>
+  <project groups="bdk" name="platform/external/tpm2" path="external/tpm2" revision="d6a1d5fdb5db314ab5213437c5ce8604244e8a9f"/>
+  <project groups="bdk" name="platform/external/tremolo" path="external/tremolo" revision="2b786461b084749fbc413e7fecafa94572eb0650"/>
+  <project groups="bdk" name="platform/external/valgrind" path="external/valgrind" revision="31e24e118fb861a43121dcb0efd1f88606423206"/>
+  <project groups="bdk" name="platform/external/wpa_supplicant_8" path="external/wpa_supplicant_8" revision="712e08b6fb0ec2b71344436aabc9d0f361a24196"/>
+  <project groups="bdk" name="platform/external/xmlrpcpp" path="external/xmlrpcpp" revision="1d7192fe0d2f788f8f150899c58b86c5ff10456a"/>
+  <project groups="bdk" name="platform/external/zlib" path="external/zlib" revision="6556998fecccfffd20f753be09118a049a4bd2ae"/>
+  <project groups="bdk" name="platform/frameworks/av" path="frameworks/av" revision="2a88f51ed065c7282fe213119b0b4c291e9d16ba"/>
+  <project groups="bdk" name="platform/frameworks/compile/libbcc" path="frameworks/compile/libbcc" revision="0e1a7167e4c7a9ebf4eb7c107103743615332a0d"/>
+  <project groups="bdk" name="platform/frameworks/compile/slang" path="frameworks/compile/slang" revision="41b4126105775fb232a14d062159fa406ef4c1b7"/>
+  <project groups="bdk" name="platform/frameworks/native" path="frameworks/native" revision="8d9818db1af53e065442fb5fcc44f69dfd31aec0"/>
+  <project groups="bdk" name="platform/frameworks/rs" path="frameworks/rs" revision="036d2dcd1bbb15672d4c5de0161ca7a8b637a14c"/>
+  <project groups="bdk" name="platform/frameworks/wilhelm" path="frameworks/wilhelm" revision="c61e996b0751c36686177bc8c8ca696f17bb3393"/>
+  <project groups="edison" name="platform/hardware/broadcom/libbt" path="hardware/broadcom/libbt" revision="7bb20397a32bb2800b6b9ede8ad0809f0b824df7"/>
+  <project groups="picoimx" name="platform/hardware/bsp/freescale" path="hardware/bsp/freescale" revision="bb63063e7bee3fa684ee870aa748b03c3ec8e6a2"/>
+  <project groups="creatorci41" name="platform/hardware/bsp/imagination" path="hardware/bsp/imagination" revision="819860d88b8ad2b59276934a5415ff626bf41ab1"/>
+  <project groups="edison,minnowboard" name="platform/hardware/bsp/intel" path="hardware/bsp/intel" revision="492e1b4bfa3a227df06fc258ea4140f84f2884a5"/>
+  <project groups="bdk" name="platform/hardware/bsp/kernel/common/v4.1" path="hardware/bsp/kernel/common/v4.1" revision="f7e8ead6a2a75fe6dc2dfb2ba2420718450ab33b"/>
+  <project groups="bdk" name="platform/hardware/bsp/kernel/common/v4.4" path="hardware/bsp/kernel/common/v4.4" revision="4201b97f720aca92fd9ca465d652aaed37fcd7d7"/>
+  <project groups="picoimx" name="platform/hardware/bsp/kernel/freescale/picoimx-3.14" path="hardware/bsp/kernel/freescale/kernel_imx" revision="5d574fcd7eea8e577299f1746e8e9be06cd6a4cf"/>
+  <project groups="creatorci41" name="platform/hardware/bsp/kernel/imagination/v4.1" path="hardware/bsp/kernel/imagination/v4.1" revision="4fc1055e9dbb8582507a466a1d7f79e54f10dc0f"/>
+  <project groups="edison" name="platform/hardware/bsp/kernel/intel/edison-v3.10" path="hardware/bsp/kernel/intel/edison-3.10" revision="46bdc5b4997e5cceb8c352b9a238bcdc9128bcb4"/>
+  <project groups="abox" name="platform/hardware/bsp/kernel/marvell/pxa-v3.14" path="hardware/bsp/kernel/marvell/pxa-3.14" revision="d7a980c93f98be1779452e59fb21ca76dc6b4d5c"/>
+  <project groups="dragonboard" name="platform/hardware/bsp/kernel/qcom/qcom-msm-v3.10" path="hardware/bsp/kernel/qcom/qcom-msm-3.10" revision="b0f3cdf057ad85790d0739130443b01e71040d01"/>
+  <project groups="kylin" name="platform/hardware/bsp/kernel/rockchip" path="hardware/bsp/kernel/rockchip/rk4.1" revision="ee76628065016ad2f5056b4116b4549c3890f43f"/>
+  <project groups="abox" name="platform/hardware/bsp/marvell" path="hardware/bsp/marvell" revision="efaad867f6f7e7b813312666358a2d8c0743fcff"/>
+  <project groups="dragonboard" name="platform/hardware/bsp/qcom" path="hardware/bsp/qcom" revision="7c138b7ad6bb22a141613cd86c1170fa60833879"/>
+  <project groups="kylin" name="platform/hardware/bsp/rockchip" path="hardware/bsp/rockchip" revision="39720418d875b56d11000d86b02f397f3cf6ac20"/>
+  <project groups="bdk" name="platform/hardware/libhardware" path="hardware/libhardware" revision="2d0b1fa2e96723c190f5805197731256968a4d66"/>
+  <project groups="bdk" name="platform/hardware/libhardware_legacy" path="hardware/libhardware_legacy" revision="fb3616658b8eb828d85120a7b459e960b137220b"/>
+  <project groups="bdk" name="platform/libnativehelper" path="libnativehelper" revision="96ace24b685986a36642bcbe34b363912fbab46a"/>
+  <project clone-depth="1" groups="bdk" name="platform/prebuilts/android-emulator" path="prebuilts/android-emulator" revision="03e20dad0d7e1de8825ef1fb2ee16bcb3fba331c"/>
+  <project clone-depth="1" groups="bdk" name="platform/prebuilts/build-tools" path="prebuilts/build-tools" revision="3e5bd2d602978f3c9b5e3aba2ed1f8604c6bb507"/>
+  <project clone-depth="1" groups="linux,bdk" name="platform/prebuilts/clang/host/linux-x86" path="prebuilts/clang/host/linux-x86" revision="5fa33af083226aa7771ba38abae0631ed84bee48"/>
+  <project groups="linux,arm,bdk" name="platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9" path="prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9" revision="423c0265176bcabd1c885f8cf6f0cedf67d3f59b"/>
+  <project groups="linux,arm,bdk" name="platform/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9" path="prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9" revision="887574f98e97475d6fb2f91a8f7b24602466017a"/>
+  <project groups="linux,bdk" name="platform/prebuilts/gcc/linux-x86/host/x86_64-linux-glibc2.11-4.8" path="prebuilts/gcc/linux-x86/host/x86_64-linux-glibc2.11-4.8" revision="1273431a189717842f033573eb8c777e13dd88b7"/>
+  <project groups="linux,bdk" name="platform/prebuilts/gcc/linux-x86/host/x86_64-linux-glibc2.15-4.8" path="prebuilts/gcc/linux-x86/host/x86_64-linux-glibc2.15-4.8" revision="73ca99196723f810dad42390d154654354f57c16"/>
+  <project groups="linux,mips,bdk" name="platform/prebuilts/gcc/linux-x86/mips/mips64el-linux-android-4.9" path="prebuilts/gcc/linux-x86/mips/mips64el-linux-android-4.9" revision="88bfecab5b700a1f6a601434d5816fab6c9261fc"/>
+  <project groups="linux,x86,bdk" name="platform/prebuilts/gcc/linux-x86/x86/x86_64-linux-android-4.9" path="prebuilts/gcc/linux-x86/x86/x86_64-linux-android-4.9" revision="e3b93a8f44d43101b396d41ef30562885714e130"/>
+  <project groups="linux,bdk" name="platform/prebuilts/gdb/linux-x86" path="prebuilts/gdb/linux-x86" revision="039a04d8a5dda0ffad38364a9de21e66843db1a4"/>
+  <project groups="darwin,bdk" name="platform/prebuilts/go/darwin-x86" path="prebuilts/go/darwin-x86" revision="e3cfe41f9807aad86f903a0d88e6e038b762e9c0"/>
+  <project groups="linux,bdk" name="platform/prebuilts/go/linux-x86" path="prebuilts/go/linux-x86" revision="0cbf8ca5219490161024433a12d92adf55b4a2c3"/>
+  <project groups="bdk" name="platform/prebuilts/misc" path="prebuilts/misc" revision="2ddb67b4d146b763a091d915bf6a4542f475adde"/>
+  <project groups="bdk" name="platform/prebuilts/ndk" path="prebuilts/ndk" revision="b20467096f3a0b22c31f4de99c07d672ea9d975f"/>
+  <project groups="darwin,bdk" name="platform/prebuilts/ninja/darwin-x86" path="prebuilts/ninja/darwin-x86" revision="cc147ae2956e96279085abfadda2767b50edc2cc"/>
+  <project groups="linux,bdk" name="platform/prebuilts/ninja/linux-x86" path="prebuilts/ninja/linux-x86" revision="543112c6744acb7a018ac36118eb2a862834809b"/>
+  <project groups="bdk,linux" name="platform/prebuilts/python/linux-x86/2.7.5" path="prebuilts/python/linux-x86/2.7.5" revision="9870834a1f61689aaff1eedda0e1ee73d7150763"/>
+  <project groups="bdk" name="platform/prebuilts/sdk" path="prebuilts/sdk" revision="0be1a5804e5fa34d7ef05c7cd943b56face3aa6c"/>
+  <project groups="tools,bdk" name="platform/prebuilts/tools" path="prebuilts/tools" revision="dfa8fc46ef1832327c0511db8687cbcf8a45be2d"/>
+  <project groups="bdk" name="platform/system/bt" path="system/bt" revision="e34b0eb1110d47832a38180c1b1f8c08205aa0e2"/>
+  <project groups="bdk" name="platform/system/bvb" path="system/bvb" revision="40fb5f401adf6745f359f4be1b1f4287261690ad"/>
+  <project groups="bdk" name="platform/system/ca-certificates" path="system/ca-certificates" revision="71a9d0371376aff02e51524a7cdbd3d7f1466d66"/>
+  <project groups="bdk" name="platform/system/connectivity/apmanager" path="system/connectivity/apmanager" revision="57188eeae6e36334e15f2cec96f68fec330b0f34"/>
+  <project groups="bdk" name="platform/system/connectivity/shill" path="system/connectivity/shill" revision="8e3ac1b9da21aac8c0e97049e0a0c8326f32e3ba"/>
+  <project groups="bdk" name="platform/system/core" path="system/core" revision="0321476fe2aedf9a0b960508b52681ee5f1d555e"/>
+  <project groups="bdk" name="platform/system/extras" path="system/extras" revision="517567d1893ee5542ab5de1675fb13a6ad3c194e"/>
+  <project groups="bdk" name="platform/system/firewalld" path="system/firewalld" revision="3a84e4d300ed4f09dd519c452d8b3d3bd110f442"/>
+  <project groups="bdk" name="platform/system/keymaster" path="system/keymaster" revision="03d4b6d531eb8c2ebcb4d572a3bf118c70a83ff6"/>
+  <project groups="bdk" name="platform/system/media" path="system/media" revision="73e30a2584522a45c00e9c497b4b2dd1eb3a8474"/>
+  <project groups="bdk" name="platform/system/nativepower" path="system/nativepower" revision="ace602ff1652d409f2a457c37d914d83ea1fad8c"/>
+  <project groups="bdk" name="platform/system/netd" path="system/netd" revision="ca670fa0bc797f231628b106474c36a3056b7145"/>
+  <project groups="bdk" name="platform/system/nvram" path="system/nvram" revision="bfb09a00dcb98fd8f4d0294c5905726973212838"/>
+  <project groups="bdk" name="platform/system/peripheralmanager" path="system/peripheralmanager" revision="ebffc4c034597531a955805eabecf3d6a2f34f82"/>
+  <project groups="bdk" name="platform/system/security" path="system/security" revision="e21840600ce3c33696f8eecd07e0ae6e84699f56"/>
+  <project groups="bdk" name="platform/system/sepolicy" path="system/sepolicy" revision="e332742721ba26759c44709a4ad7f9a829544903"/>
+  <project groups="bdk" name="platform/system/tools/aidl" path="system/tools/aidl" revision="9a876ced01432da52b9799fe61cab78630e882ec"/>
+  <project groups="bdk" name="platform/system/tools/bpt" path="system/tools/bpt" revision="c3ae67c35590ce0ed05e70599fdc29633e9f700c"/>
+  <project groups="bdk" name="platform/system/tpm" path="system/tpm" revision="d68cece5b0f94a3445869a025f0a331a60046b90"/>
+  <project groups="bdk" name="platform/system/update_engine" path="system/update_engine" revision="a57ce77c1e7c0e7c1caa825e3f8ca204c3e5900a"/>
+  <project groups="bdk" name="platform/system/weaved" path="system/weaved" revision="e477f1e5fd82dfcb545b9f57b98b0d3384ac75de"/>
+  <project groups="bdk" name="platform/system/webservd" path="system/webservd" revision="b470b41a117a213f5b8cf2d7badcc208da001b72"/>
+  <project groups="bdk,bdk-cli" name="platform/tools/bdk" path="tools/bdk" revision="b6bb72e42919381087cbc0c814dc93fdbe320030"/>
+  <project name="platform_external_sbsigntool" path="vendor/bsp/intel/sbsigntool" remote="github" revision="098d53494058cf248fbb6a11d839cfe178a8ba71" sync-c="true"/>
+  <project name="platform_external_uefi_shim" path="vendor/bsp/intel/uefi_shim" remote="github" revision="cafd75cdbf05a92fbfec43338027b2bcc510d89f" sync-c="true"/>
+  <project groups="bdk" name="product/google/common" revision="9aa94ce9ee7680ca776483a5215b7d74bedc38f7"/>
+  <project groups="bdk" name="product/google/example-ledflasher" revision="23d2c98ec4798d5b4d7ffe152a2fb12609c023d8"/>
+  <project name="vendor_intel_external_efi_gnu-efi_prebuilt" path="vendor/bsp/intel/gnu-efi_prebuilt" remote="github" revision="7c31b0a5f772eafe1cb03324f38d4dea989fb8ba" sync-c="true"/>
+</manifest>
