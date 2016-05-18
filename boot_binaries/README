@@ -142,7 +142,7 @@ building.
 
 To recreate the exact binaries you need to download the 'full_manifest_2016-04-01.xml' file from:
 https://github.com/01org/brillo-minnowboard-binaries/tree/brillo-manifests. Then run:
-  $ repo init -u https://android.googlesource.com/brillo/manifest -b master -m full_manifest_2016-04-01.xml
+  $ repo init -u https://android.googlesource.com/brillo/manifest -b master -m full_manifest_2016-05-18.xml
   $ repo sync
 
 You can now follow the instructions from the previous section to build the images.
